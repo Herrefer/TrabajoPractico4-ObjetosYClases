@@ -35,3 +35,14 @@ class Libro{
 }
 const libroUno = new Libro (21574, "Para volerse loco, una historia sobre los límites de la mente", "A.K Benjamin", 231)
 const libroDos = new Libro (8522, "La historia del loco", "John Katzenbach", 591)
+
+function mayorCantidadDePaginas(){
+    if(libroUno.numeroDePaginas > libroDos.numeroDePaginas){
+        console.log(`El libro ${libroUno.titulo} tiene mayor cantidad de páginas`)
+    }
+    else{
+        console.log(`El libro ${libroDos.titulo} tiene mayor cantidad de páginas`)
+    }
+}
+
+// la última funcion no se si es correcta, no entendí el último requisito del punto
