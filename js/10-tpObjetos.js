@@ -20,15 +20,13 @@ class Aeropuerto{
         console.log(`El avión ${avion.nombre} fué agregado al aeropuerto correctamente`)
     }
     buscarAvion(nombreDeAvion){
-        for (let indiceLista = 0; indiceLista < this.listaDeAviones.length; indiceLista++) {
-            if (this.listaDeAviones[indiceLista] === nombreDeAvion){
-                console.log("Este avión ya está agregado al aeropuerto")
-                break;
-            }
-            else{
-                console.log("Este avión aún no fué agregado al aeropuerto")
-            }
-        }
+    const encontrarAvion = this.listaDeAviones.find(avion => avion === nombreDeAvion)
+    if(encontrarAvion === nombreDeAvion){
+        console.log(`El avion ${nombreDeAvion} ya se encuentra en el aeropuerto`)
+    }
+    else{
+        console.log(`El avion ${nombreDeAvion} no está en el aeropuerto`)
+    }
     }
 }
 class Avion{
@@ -52,3 +50,4 @@ class Avion{
 const aeropuertoInternacional = new Aeropuerto("Aeropuerto Internacional", [])
 const avionUno = new Avion ("AutumnAir", 50, "Ciudad Lavanda", [])
 const avionDos = new Avion ("BossaFly", 20, "Brasil", [])
+const avionTres = new Avion ("ChihiroTravel", 30, "Japón", [])
