@@ -67,6 +67,9 @@ class Agenda{
             console.log(`Tiene ${this.listaDeContactos.length} espacios ocupados de un total de ${(this.tamanioAgenda + 1)} espacios disponibles`)
         }
     }
+    huecosLibres(){
+        console.log(`A la agenda le quedan ${(this.tamanioAgenda + 1)-(this.listaDeContactos.length)} espacio/s disponible/s`)
+    }
 }
 
 class Contacto{
