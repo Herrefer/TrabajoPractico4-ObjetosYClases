@@ -8,9 +8,9 @@ function limiteAgenda(array, limite){
 }
 // const prueba = [1,2,3,4,5,6,7,8,9,10,11,12,13,14] array para probar la funcion
 class Agenda{
-    constructor(tamanioParam, []){
+    constructor(tamanioParam = 10, []){
         this.listaDeContactos = []
-        this.tamanioAgenda = limiteAgenda(this.listaDeContactos, tamanioParam) 
+        this.tamanioAgenda = (tamanioParam - 1)
     }
     get contactos_(){
         return this.listaDeContactos
@@ -21,10 +21,19 @@ class Agenda{
     aniadirContacto(contacto){
         if(this.listaDeContactos.length <= this.tamanioAgenda){
             this.listaDeContactos.push(contacto.nombre)
-            console.log(`${contacto.nombre} fué añadido correctamente a la lista`)
+            console.log(`${contacto.nombre} fué añadido correctamente a la agenda`)
         }
         else{
-            console.log (`No hay más espacio en la agenda para añadir a ${contacto.nombre}`)
+            console.log(`${contacto.nombre} no pudo ser añadido, la agenda está llena`)
+        }
+    }
+    existeContacto(nombreDeContacto){
+        const encontrarContacto = this.listaDeContactos.find(contacto => contacto === nombreDeContacto)
+        if(encontrarContacto == nombreDeContacto){
+            console.log(`El contacto ya se encuentra agendado`)
+        }
+        else{
+            console.log(`El contacto no está en la agenda`)
         }
     }
 }
@@ -49,7 +58,15 @@ class Contacto{
 }
 
 
-const agenda = new Agenda (10,[])
+const agenda = new Agenda (2,[])
 const contactoUno = new Contacto ("Sofia", 3816458294)
 const contactoDos = new Contacto ("Paula", 3814578413)
 const contactoTres = new Contacto ("Juan", 3818595497)
+const contactoCuatro = new Contacto ("Pedro", 3818595497)
+const contactoCinco = new Contacto ("Fabian", 3818595497)
+const contactoSeis = new Contacto ("Mentuhotep", 3818595497)
+const contactoSiete = new Contacto ("Salmanasar", 3818595497)
+const contactoOcho = new Contacto ("Tutankathon", 3818595497)
+const contactoNueve = new Contacto ("Hammurabi", 3818595497)
+const contactoDiez = new Contacto ("Saracatunga", 3818595497)
+const contactoOnce = new Contacto ("Bonaparte", 3818595497)
