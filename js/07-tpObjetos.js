@@ -20,7 +20,7 @@ class Agenda{
     }
     aniadirContacto(contacto){
         if(this.listaDeContactos.length <= this.tamanioAgenda){
-            this.listaDeContactos.push(contacto.nombre)
+            this.listaDeContactos.push(contacto)
             console.log(`${contacto.nombre} fué añadido correctamente a la agenda`)
         }
         else{
@@ -28,12 +28,24 @@ class Agenda{
         }
     }
     existeContacto(nombreDeContacto){
-        const encontrarContacto = this.listaDeContactos.find(contacto => contacto === nombreDeContacto)
-        if(encontrarContacto == nombreDeContacto){
+        const encontrarContacto = this.listaDeContactos.find(contacto => contacto.nombre === nombreDeContacto)
+        if(encontrarContacto){
             console.log(`El contacto ya se encuentra agendado`)
         }
         else{
             console.log(`El contacto no está en la agenda`)
+        }
+    }
+    listarContactos(){ 
+        console.log(`Los contactos en la agenda son:`)
+        this.listaDeContactos.forEach((contacto) => console.log(contacto))
+    }
+    buscarContacto(nombreDeContacto) {
+        const encontrarContacto = this.listaDeContactos.find(contacto => contacto.nombre === nombreDeContacto);
+        if (encontrarContacto) {
+            console.log(`Teléfono de ${nombreDeContacto}: ${encontrarContacto.telefono}`);
+        } else {
+            console.log(`No se encontró ningún contacto con el nombre ${nombre}. Asegúrese de agendarlo`);
         }
     }
 }
