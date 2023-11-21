@@ -41,11 +41,21 @@ class Agenda{
         this.listaDeContactos.forEach((contacto) => console.log(contacto))
     }
     buscarContacto(nombreDeContacto) {
-        const encontrarContacto = this.listaDeContactos.find(contacto => contacto.nombre === nombreDeContacto);
+        const encontrarContacto = this.listaDeContactos.find(contacto => contacto.nombre === nombreDeContacto)
         if (encontrarContacto) {
             console.log(`Teléfono de ${nombreDeContacto}: ${encontrarContacto.telefono}`);
         } else {
             console.log(`No se encontró ningún contacto con el nombre ${nombre}. Asegúrese de agendarlo`);
+        }
+    }
+    eliminarContacto(nombreDeContacto){
+        const indiceSplice = this.listaDeContactos.findIndex((contacto) => contacto.nombre === nombreDeContacto)
+        if(indiceSplice != -1){
+            this.listaDeContactos.splice(indiceSplice, 1)
+            console.log(`${nombreDeContacto} fué eliminado de la agenda`)
+        }
+        else{
+            console.log(`${nombreDeContacto} no se encuentra en la agenda`)
         }
     }
 }
