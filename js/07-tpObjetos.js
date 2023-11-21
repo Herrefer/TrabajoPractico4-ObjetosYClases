@@ -58,6 +58,15 @@ class Agenda{
             console.log(`${nombreDeContacto} no se encuentra en la agenda`)
         }
     }
+    agendaLlena(){
+        if(this.listaDeContactos.length === (this.tamanioAgenda + 1)){
+            console.log(`La agenda está llena`)
+        }
+        else{
+            console.log(`La agenda aún tiene espacio para agregar más contactos`)
+            console.log(`Tiene ${this.listaDeContactos.length} espacios ocupados de un total de ${(this.tamanioAgenda + 1)} espacios disponibles`)
+        }
+    }
 }
 
 class Contacto{
