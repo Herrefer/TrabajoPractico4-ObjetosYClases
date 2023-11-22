@@ -112,3 +112,62 @@ const contactoOcho = new Contacto("Tutankathon", 381888745);
 const contactoNueve = new Contacto("Hammurabi", 38111123);
 const contactoDiez = new Contacto("Saracatunga", 381979795);
 const contactoOnce = new Contacto("Bonaparte", 38166352);
+
+const contactosListados = [
+  contactoUno,
+  contactoDos,
+  contactoTres,
+  contactoCuatro,
+  contactoCinco,
+  contactoSeis,
+  contactoSiete,
+  contactoOcho,
+  contactoNueve,
+  contactoDiez,
+  contactoOnce,
+];
+let opcion = parseInt(
+  prompt(`Elija una opción para interactuar con la agenda
+1- Añadir contacto
+2- Verificar si un contacto existe en la agenda
+3- Mostrar lista de contactos
+4- Mostrar el número de telefono de un contacto
+5- Eliminar un contacto
+6- Verificar si la agenda estállena
+7- Espacio disponible en la agenda`)
+);
+if (opcion > 7) {
+  prompt(`Solo puede elegir las opciones que aparecen en pantalla`);
+} else {
+  switch (opcion) {
+    case 1:
+      const aniadirContacto_ = prompt(`Ingrese el contacto que desea añadir`);
+      const contactoAniadir = contactosListados.find(
+        (contacto) => contacto.nombre === aniadirContacto_
+      );
+      console.log(contactoAniadir);
+      if (agenda.listaDeContactos.length <= agenda.tamanioAgenda) {
+        agenda.listaDeContactos.push(contactoAniadir);
+        console.log(
+          `${contactoAniadir.nombre} fué añadido correctamente a la agenda`
+        );
+      } else {
+        console.log(
+          `${contacto.nombre} no pudo ser añadido, la agenda está llena`
+        );
+      }
+      break;
+      case 2: 
+        const existeContacto_ = prompt(`Introduzca el nombre del contacto`)
+        const encontrarContacto = agenda.listaDeContactos.find(
+          (contacto) => contacto.nombre === existeContacto_
+        );
+        if (encontrarContacto) {
+          console.log(`El contacto ya se encuentra agendado`);
+        } else {
+          console.log(`El contacto no está en la agenda`);
+        }
+        break;
+  }
+    
+}
